@@ -38,4 +38,7 @@ export class ExperimentDetailComponent implements OnInit {
 
   showConfig(): void {
   }
+
+  showRecord(): void {
+  }
 }
