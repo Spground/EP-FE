@@ -23,6 +23,7 @@
     "karma-cli": "^2.0.0",
     "karma-coverage": "^1.1.2",
     "karma-coveralls": "^2.1.0",
+    "ng-json-view": "^2.2.0",
     "ng-zorro-antd": "^7.3.3",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",

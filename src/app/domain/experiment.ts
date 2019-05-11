@@ -1,8 +1,6 @@
-export class Experiment {
-    id: number;
+import { BaseDomain } from './base-domain';
+
+export class Experiment extends BaseDomain {
     name: string;
     experiment_group: number;
-    create_dt: string;
-    update_dt: string;
-    description: string;
 }
