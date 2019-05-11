@@ -8,9 +8,26 @@
       </nz-card>
   </nz-tab>
   <nz-tab nzTitle="配置" (nzSelect)="showConfig()">
-    Content of Tab Pane 2
+      <nz-card style="width:800px;" nzTitle="配置详情" *ngFor="let config of configs">
+          <p><span>描述：</span>{{config.description}}</p>
+          <p><span>创建日期：</span>{{config.create_dt | date: "yyyy年MM月dd日 hh:mm:ss"}}</p>
+          <p><span>更新日期：</span>{{config.update_dt | date: "yyyy年MM月dd日 hh:mm:ss"}}</p>
+          <p><span>配置JSON：</span><ngx-json-view [data]="config.config_json | jsonParsePipe"></ngx-json-view></p>
+      </nz-card>
   </nz-tab>
   <nz-tab nzTitle="实验记录" (nzSelect)="showRecord()">
+      <nz-card style="width:800px;" nzTitle="实验记录详情" *ngFor="let record of experimentRecords">
+          <p><span>描述：</span>{{record.description}}</p>
+          <p><span>创建日期：</span>{{record.create_dt | date: "yyyy年MM月dd日 hh:mm:ss"}}</p>
+          <p><span>更新日期：</span>{{record.update_dt | date: "yyyy年MM月dd日 hh:mm:ss"}}</p>
+          <nz-card *ngIf="record.configObj" style="width:800px;" nzTitle="配置详情">
+              <p><span>描述：</span>{{record.configObj.description}}</p>
+              <p><span>创建日期：</span>{{record.configObj.create_dt | date: "yyyy年MM月dd日 hh:mm:ss"}}</p>
+              <p><span>更新日期：</span>{{record.configObj.update_dt | date: "yyyy年MM月dd日 hh:mm:ss"}}</p>
+              {{record.config.config_json}}
+              <p><span>配置JSON：</span><ngx-json-view [data]="record.configObj.config_json | jsonParsePipe"></ngx-json-view></p>
+          </nz-card>
+      </nz-card>
   </nz-tab>
 </nz-tabset>
 

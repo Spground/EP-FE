@@ -1,8 +1,6 @@
-export class ExperimentConfig {
-    id: number;
-    name: string;
-    experiment_group: number;
-    create_dt: string;
-    update_dt: string;
-    description: string;
+import { BaseDomain } from './base-domain';
+
+export class ExperimentConfig extends BaseDomain {
+    experiment: number;
+    config_json: string;
 }
