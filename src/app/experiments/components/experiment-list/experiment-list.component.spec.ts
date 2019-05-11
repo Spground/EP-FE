@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ExperimentListComponent } from './experiment-list.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ExperimentListComponent', () => {
   let component: ExperimentListComponent;
@@ -11,6 +12,7 @@ describe('ExperimentListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ExperimentListComponent ],
       imports: [
+        RouterTestingModule,
         HttpClientTestingModule,
         NgZorroAntdModule
       ],

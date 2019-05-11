@@ -91,12 +91,10 @@
             "scripts": [],
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
-                "output": "/assets/"
-              }
+              "src/assets"
+            ],
+            "codeCoverageExclude": [
+              "src/app/layout/**/*.ts"
             ]
           }
         },
