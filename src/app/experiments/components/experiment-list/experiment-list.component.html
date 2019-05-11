@@ -1,0 +1,27 @@
+<nz-table *ngIf='listOfExperiments' nzShowPagination [nzFrontPagination]="false" #basicTable
+[nzData]="listOfExperiments" [(nzPageIndex)]="pageIndex" [nzTotal]="total" (nzPageIndexChange)="onPageIndexChange()">
+  <thead (nzSortChange)="sort($event)" nzSingleSort>
+    <tr>
+      <th nzShowSort=true nzSortKey="id">实验ID</th>
+      <th nzShowSort=true nzSortKey="name">实验名称</th>
+      <th nzShowSort=true nzSortKey="experiment_group">实验组ID</th>
+      <th>实验描述</th>
+      <th nzShowSort=true nzSortKey="create_dt">创建日期</th>
+      <th nzShowSort=true nzSortKey="update_dt">更新日期</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of listOfExperiments">
+      <td>{{data.id}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.experiment_group}}</td>
+      <td>{{data.description}}</td>
+      <td>{{data.create_dt |  date: "yyyy年MM月dd日 hh:mm:ss"}}</td>
+      <td>{{data.update_dt | date: "yyyy年MM月dd日 hh:mm:ss" }}</td>
+      <td>
+        <a routerLink='/experiments/detail/{{data.id}}'>详情</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

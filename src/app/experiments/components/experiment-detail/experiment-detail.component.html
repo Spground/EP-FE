@@ -1,0 +1,16 @@
+<nz-tabset>
+  <nz-tab nzTitle="实验">
+      <nz-card *ngIf="experiment" style="width:800px;" nzTitle="实验详情">
+          <p><span>实验名称：</span>{{experiment.name}}</p>
+          <p><span>实验描述：</span>{{experiment.description}}</p>
+          <p><span>实验创建日期：</span>{{experiment.create_dt | date: "yyyy年MM月dd日 hh:mm:ss"}}</p>
+          <p><span>实验更新日期：</span>{{experiment.update_dt | date: "yyyy年MM月dd日 hh:mm:ss"}}</p>
+      </nz-card>
+  </nz-tab>
+  <nz-tab nzTitle="配置" (nzSelect)="showConfig()">
+    Content of Tab Pane 2
+  </nz-tab>
+  <nz-tab nzTitle="实验记录" (nzSelect)="showRecord()">
+  </nz-tab>
+</nz-tabset>
+
