@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CONFIG } from '../config';
 import { Experiment } from '../domain/experiment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,8 @@ import { Experiment } from '../domain/experiment';
 export class ExperimentsService {
   constructor(private readonly http: HttpClient) { }
 
-  getExperiments(pageIndex: number) {
-    return this.http.get(`${CONFIG.API}/experiments/?page=${pageIndex}`);
+  getExperiments(pageIndex: number, pageSize = 10) {
+    return this.http.get(`${CONFIG.API}/experiments/?page=${pageIndex}&page_size=${pageSize}`);
   }
 
   getSingleExperiment(expId: number) {

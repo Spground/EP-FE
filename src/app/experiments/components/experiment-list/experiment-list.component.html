@@ -1,5 +1,7 @@
-<nz-table *ngIf='listOfExperiments' nzShowPagination [nzFrontPagination]="false" #basicTable
-[nzData]="listOfExperiments" [(nzPageIndex)]="pageIndex" [nzTotal]="total" (nzPageIndexChange)="onPageIndexChange()">
+<nz-table *ngIf='listOfExperiments' nzShowPagination nzShowSizeChanger (nzPageSizeChange)="onPageSizeChange($event)"
+[nzFrontPagination]="false" #basicTable [nzPageSizeOptions]="[10, 20, 30, 50, 100]"
+[nzData]="listOfExperiments" [(nzPageIndex)]="pageIndex" 
+[(nzPageSize)]="pageSize" [nzTotal]="total" (nzPageIndexChange)="onPageIndexChange()">
   <thead (nzSortChange)="sort($event)" nzSingleSort>
     <tr>
       <th nzShowSort=true nzSortKey="id">实验ID</th>
