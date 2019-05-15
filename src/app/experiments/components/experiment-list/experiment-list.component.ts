@@ -19,7 +19,7 @@ export class ExperimentListComponent implements OnInit {
   // 分页
   pageIndex = 1;
   total = 0;
-  pageSize = 10;
+  pageSize = 20;
 
   constructor(private readonly experimentsService: ExperimentsService) { }
 
@@ -28,7 +28,7 @@ export class ExperimentListComponent implements OnInit {
   }
 
   getExperiments() {
-    this.experimentsService.getExperiments(this.pageIndex).subscribe(
+    this.experimentsService.getExperiments(this.pageIndex, this.pageSize).subscribe(
       (data: {results: Experiment[], count: number}) => {
         this.data = data.results;
         this.total = data.count;
@@ -57,6 +57,11 @@ export class ExperimentListComponent implements OnInit {
   }
 
   onPageIndexChange(): void {
+    this.getExperiments();
+  }
+
+  onPageSizeChange(pageSize: number): void {
+    this.pageSize = pageSize;
     this.getExperiments();
   }
 }
